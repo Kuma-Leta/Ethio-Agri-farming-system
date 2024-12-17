@@ -8,7 +8,7 @@ export const PrivateRoutes: React.FC<PrivateRouteProps> = ({
   redirectPath = "/login",
   children,
 }) => {
-  const isAuthenticated = !!localStorage.getItem("authToken");
+  const isAuthenticated = !!localStorage.getItem("token");
   if (!isAuthenticated) return <Navigate to={redirectPath} replace />;
   return <>{children}</>;
 };
