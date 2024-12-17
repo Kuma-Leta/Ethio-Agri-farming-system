@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import path from "path";
 import http from "http";
-// import routes from "./routes/routes";
+import userRoutes from "./routes/userRoutes";
 import { Router } from "express";
 import { connectDB } from "./utils/connectDb";
 import cors from "cors";
@@ -16,7 +16,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
-// app.use("/api", routes);
+app.use("/api/userRoutes", userRoutes);
 
 const port = process.env.PORT || 5000;
 server.listen(port, () => {
